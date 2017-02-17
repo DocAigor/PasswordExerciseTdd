@@ -4,16 +4,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Password;
 
 namespace TestPassword
 {
     [TestFixture]
     public class TestPasswordVerify
     {
-        private Password pass;
+        private PasswordVerifier pass;
         [SetUp]
         public void SetUp(){
-            pass= new Password();
+            pass = new PasswordVerifier();
         }
 
         [TestCase("12345678")]

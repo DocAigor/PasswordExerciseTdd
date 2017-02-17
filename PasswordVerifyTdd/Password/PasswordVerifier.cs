@@ -9,7 +9,7 @@ namespace Password
     {
         public bool Verify(string password)
         {
-            throw new NotImplementedException();
+            return (password.Length >= 8);
         }
     }
 }
