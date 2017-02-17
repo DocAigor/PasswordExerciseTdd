@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace TestPassword
+namespace Password
 {
-    public class Password
+    public class PasswordVerifier
     {
         public bool Verify(string password)
         {
