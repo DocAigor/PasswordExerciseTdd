@@ -1,4 +1,4 @@
-# PasswordExerciseTdd
+# PasswordTdd
 
 Create a Password verifications class called PasswordVerifier.
 Add the following verifications to a master function called Verify()
