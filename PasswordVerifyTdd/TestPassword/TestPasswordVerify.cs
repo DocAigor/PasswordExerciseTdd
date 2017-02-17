@@ -33,7 +33,6 @@ namespace TestPassword
         /// and not is null or empty
         /// ------------------------
         /// features: should be contains a special char
-        /// NO SPACE
         /// </summary>
         /// <param name="password"></param>
         /// <param name="expected"></param>
@@ -48,6 +47,7 @@ namespace TestPassword
         [TestCase("AaBbCcDd", false)]
         [TestCase("Aa12Cc34", false)]
         [TestCase("Aa12Cc!@", true)]
+        [TestCase("Aacc<:-)", false)]
         public void TestPassword(string password, bool expected)
         {
             var result = pass.Verify(password);
