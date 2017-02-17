@@ -7,15 +7,21 @@ namespace Password
 {
     public class PasswordVerifier
     {
-        List<string> dictionary = new List<string> { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
+        List<string> alphabet = new List<string> { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
+        List<string> numbers = new List<string> { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+
         public bool Verify(string password)
         {
             if (string.IsNullOrEmpty(password)) return false;
 
-            var containsUpper = (from c in dictionary
-                                where password.Contains(c.ToUpper())
-                                select c).Any();      
-            return (containsUpper && password.Length >= 8);
+            var containsUpperLower = (from c in alphabet
+                                      where password.Contains(c.ToUpper()) &&
+                                            password.Contains(c)
+                                      select c).Any();
+            var containsNumber = (from n in numbers
+                                  where password.Contains(n)
+                                  select n).Any();
+            return (containsNumber && containsUpperLower && password.Length >= 8);
         }
     }
 }
